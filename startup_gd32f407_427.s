@@ -85,11 +85,11 @@ Infinite_Loop:
   b Infinite_Loop
   .size Default_Handler, .-Default_Handler
 
-   .section  .vectors,"a",%progbits
+   .section  .isr_vector,"a",%progbits
    .global __gVectors
 
 __gVectors:
-                    .word _sp                                     /* Top of Stack */
+                    .word _estack                                     /* Top of Stack */
                     .word Reset_Handler                           /* Reset Handler */
                     .word NMI_Handler                             /* NMI Handler */
                     .word HardFault_Handler                       /* Hard Fault Handler */
